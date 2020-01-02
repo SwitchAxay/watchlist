@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactTimeAgo from "react-timeago";
 
 import Bookmark from "../../Images/Bookmark.png";
 import Like from "../../Images/Like.png";
@@ -33,7 +34,9 @@ const WatchListBox = ({ Story }) => {
 					<div className="WatchList-sub-details">
 						<div>
 							{Story.domain_name}
-							<span className="WatchList-sub-time">22 hours ago</span>
+							<span className="WatchList-sub-time">
+								<ReactTimeAgo date={new Date(Story.publishTime)} />
+							</span>
 						</div>
 
 						{!isSubDetailsOpen ? (
@@ -68,7 +71,7 @@ const WatchListBox = ({ Story }) => {
 			</div>
 			{isSubDetailsOpen ? (
 				<div className="WatchList-box-arrow-small">
-					<div className="arrow-small" onClick={showHideDetailsBox}>
+					<div className="arrow-small less" onClick={showHideDetailsBox}>
 						Less
 						<img alt="" src={DownArrowBorderColor} />
 					</div>

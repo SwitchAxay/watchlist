@@ -132,13 +132,18 @@
 			margin-left: 5px;
 		}
 	}
+	.less {
+		img {
+			transform: rotate(180deg);
+		}
+	}
 }
 
 /*
 	Media Query
 */
 
-@media (max-width: 320px) {
+@media (max-width: 380px) {
 	.WatchList {
 		padding: 14px 11px;
 	}
@@ -166,7 +171,7 @@
 	}
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+@media (min-width: 381px) and (max-width: 768px) {
 	.WatchList {
 		padding: 14px 19px;
 	}

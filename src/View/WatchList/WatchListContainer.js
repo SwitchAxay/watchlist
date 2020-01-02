@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 
-import WatchList from "./WatchList";
+import WatchListBox from "./WatchListBox";
+import { stories } from "../../Data/Stories";
 
 import "./WatchList.scss";
 
-import { stories } from "../../Data/Stories";
-
 class WatchListContainer extends Component {
 	render() {
-		return <WatchList Stories={stories} />;
+		return (
+			<div className="WatchList">
+				<div className="WatchList-header">Watchlist</div>
+				<div className="WatchList-list-holder">
+					{stories.map((Story, i) => (
+						<WatchListBox key={i} Story={Story} />
+					))}
+				</div>
+			</div>
+		);
 	}
 }
 
