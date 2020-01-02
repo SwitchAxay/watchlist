@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import Bookmark from "../../Images/Bookmark.png";
 import Like from "../../Images/Like.png";
 import Dislike from "../../Images/Dislike.png";
 import DownArrowBorder from "../../Images/DownArrowBorder.png";
@@ -76,7 +77,7 @@ const WatchListBox = ({ Story }) => {
 			{isSubDetailsOpen ? (
 				<div className="WatchList-box-sub">
 					<div className="bookmark">
-						<img alt="" src={Like} height="14px" />
+						<img alt="" src={Bookmark} height="14px" />
 						<div>Bookmark</div>
 					</div>
 					<div className="like">
