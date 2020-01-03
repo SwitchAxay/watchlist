@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import ReactTimeAgo from "react-timeago";
-
-import Bookmark from "../../Images/Bookmark.png";
-import Like from "../../Images/Like.png";
-import Dislike from "../../Images/Dislike.png";
-import DownArrowBorder from "../../Images/DownArrowBorder.png";
-import DownArrowBorderColor from "../../Images/DownArrowBorderColor.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faThumbsUp,
+	faThumbsDown,
+	faBookmark
+} from "@fortawesome/free-regular-svg-icons";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const WatchListBox = ({ Story }) => {
 	const [isSubDetailsOpen, setIsSubDetailsOpen] = useState(false);
@@ -14,9 +15,13 @@ const WatchListBox = ({ Story }) => {
 		setIsSubDetailsOpen(!isSubDetailsOpen);
 	};
 
+	const stopShowHideDetailsBox = e => {
+		e.stopPropagation();
+	};
+
 	return (
 		<div className="WatchList-box">
-			<div className="WatchList-box-main">
+			<div className="WatchList-box-main" onClick={showHideDetailsBox}>
 				<div className="WatchList-box-logo">
 					<img
 						alt=""
@@ -27,7 +32,12 @@ const WatchListBox = ({ Story }) => {
 				</div>
 				<div className="WatchList-box-details">
 					<div className="WatchList-title">
-						<a target="_blank" href={Story.url} rel="noopener noreferrer">
+						<a
+							target="_blank"
+							href={Story.url}
+							rel="noopener noreferrer"
+							onClick={stopShowHideDetailsBox}
+						>
 							{Story.title}
 						</a>
 					</div>
@@ -41,9 +51,17 @@ const WatchListBox = ({ Story }) => {
 
 						{!isSubDetailsOpen ? (
 							<div className="WatchList-box-arrow-small">
-								<div className="arrow-small" onClick={showHideDetailsBox}>
+								<div className="arrow-small">
 									More
-									<img alt="" src={DownArrowBorderColor} />
+									<FontAwesomeIcon
+										icon={faChevronDown}
+										style={{
+											fontSize: "12px",
+											color: "#3971c1",
+											marginLeft: "5px",
+											marginTop: "2px"
+										}}
+									/>
 								</div>
 							</div>
 						) : null}
@@ -54,41 +72,42 @@ const WatchListBox = ({ Story }) => {
 				</div>
 				<div className="WatchList-box-right">
 					<div className="WatchList-box-perc">{Story.score || "0"}%</div>
-					<div
-						className={`WatchList-box-arrow ${
-							isSubDetailsOpen ? "WatchList-box-arrow-open" : ""
-						}`}
-					>
-						<img
-							className="arrow"
-							alt=""
-							src={DownArrowBorder}
-							width="15px"
-							onClick={showHideDetailsBox}
+					<div className="WatchList-box-arrow">
+						<FontAwesomeIcon
+							icon={isSubDetailsOpen ? faChevronUp : faChevronDown}
+							style={{ fontSize: "15px", color: "#d2d2d2" }}
 						/>
 					</div>
 				</div>
 			</div>
 			{isSubDetailsOpen ? (
 				<div className="WatchList-box-arrow-small">
-					<div className="arrow-small less" onClick={showHideDetailsBox}>
+					<div className="arrow-small">
 						Less
-						<img alt="" src={DownArrowBorderColor} />
+						<FontAwesomeIcon
+							icon={faChevronUp}
+							style={{
+								fontSize: "12px",
+								color: "#3971c1",
+								marginLeft: "5px",
+								marginTop: "2px"
+							}}
+						/>
 					</div>
 				</div>
 			) : null}
 			{isSubDetailsOpen ? (
 				<div className="WatchList-box-sub">
 					<div className="bookmark">
-						<img alt="" src={Bookmark} height="14px" />
+						<FontAwesomeIcon icon={faBookmark} style={{ fontSize: "14px" }} />
 						<div>Bookmark</div>
 					</div>
 					<div className="like">
-						<img alt="" src={Like} height="14px" />
+						<FontAwesomeIcon icon={faThumbsUp} style={{ fontSize: "14px" }} />
 						<div>Like</div>
 					</div>
 					<div className="dis-like">
-						<img alt="" src={Dislike} height="14px" />
+						<FontAwesomeIcon icon={faThumbsDown} style={{ fontSize: "14px" }} />
 						<div>Dislike</div>
 					</div>
 				</div>

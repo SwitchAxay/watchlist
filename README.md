@@ -6,7 +6,8 @@ Test task with responsive designing in ReactJS
 ### Library
 * [ReactJS](https://reactjs.org/)
 * [node-sass](https://www.npmjs.com/package/node-sass)
-* [react-timeago](https://www.npmjs.com/package/react-timeago) 
+* [react-timeago](https://www.npmjs.com/package/react-timeago)
+* [@fortawesome](https://github.com/FortAwesome/react-fontawesome) 
 
 ### Instructions
 * Clone repo
