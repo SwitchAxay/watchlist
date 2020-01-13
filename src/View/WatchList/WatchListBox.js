@@ -7,6 +7,9 @@ import {
 	faBookmark
 } from "@fortawesome/free-regular-svg-icons";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { stories } from "../../Data/Stories";
+
+import "./WatchList.scss";
 
 const WatchListBox = ({ Story }) => {
 	const [isSubDetailsOpen, setIsSubDetailsOpen] = useState(false);
@@ -20,9 +23,9 @@ const WatchListBox = ({ Story }) => {
 	};
 
 	return (
-		<div className="WatchList-box">
-			<div className="WatchList-box-main" onClick={showHideDetailsBox}>
-				<div className="WatchList-box-logo">
+		<div className="watchList-box">
+			<div className="watchList-box-main" onClick={showHideDetailsBox}>
+				<div className="watchList-box-logo">
 					<img
 						alt=""
 						src={Story.domain_cached_logo_url}
@@ -30,8 +33,8 @@ const WatchListBox = ({ Story }) => {
 						width="34px"
 					/>
 				</div>
-				<div className="WatchList-box-details">
-					<div className="WatchList-title">
+				<div className="watchList-box-details">
+					<div className="watchList-title">
 						<a
 							target="_blank"
 							href={Story.url}
@@ -41,16 +44,16 @@ const WatchListBox = ({ Story }) => {
 							{Story.title}
 						</a>
 					</div>
-					<div className="WatchList-sub-details">
+					<div className="watchList-sub-details">
 						<div>
 							{Story.domain_name}
-							<span className="WatchList-sub-time">
+							<span className="watchList-sub-time">
 								<ReactTimeAgo date={new Date(Story.publishTime)} />
 							</span>
 						</div>
 
 						{!isSubDetailsOpen ? (
-							<div className="WatchList-box-arrow-small">
+							<div className="watchList-box-arrow-small">
 								<div className="arrow-small">
 									More
 									<FontAwesomeIcon
@@ -67,12 +70,12 @@ const WatchListBox = ({ Story }) => {
 						) : null}
 					</div>
 					{isSubDetailsOpen ? (
-						<div className="WatchList-desc">{Story.description}</div>
+						<div className="watchList-desc">{Story.description}</div>
 					) : null}
 				</div>
-				<div className="WatchList-box-right">
-					<div className="WatchList-box-perc">{Story.score || "0"}%</div>
-					<div className="WatchList-box-arrow">
+				<div className="watchList-box-right">
+					<div className="watchList-box-perc">{Story.score || "0"}%</div>
+					<div className="watchList-box-arrow">
 						<FontAwesomeIcon
 							icon={isSubDetailsOpen ? faChevronUp : faChevronDown}
 							style={{ fontSize: "15px", color: "#d2d2d2" }}
@@ -81,7 +84,7 @@ const WatchListBox = ({ Story }) => {
 				</div>
 			</div>
 			{isSubDetailsOpen ? (
-				<div className="WatchList-box-arrow-small">
+				<div className="watchList-box-arrow-small">
 					<div className="arrow-small">
 						Less
 						<FontAwesomeIcon
@@ -97,7 +100,7 @@ const WatchListBox = ({ Story }) => {
 				</div>
 			) : null}
 			{isSubDetailsOpen ? (
-				<div className="WatchList-box-sub">
+				<div className="watchList-box-sub">
 					<div className="bookmark">
 						<FontAwesomeIcon icon={faBookmark} style={{ fontSize: "14px" }} />
 						<div>Bookmark</div>
@@ -116,4 +119,17 @@ const WatchListBox = ({ Story }) => {
 	);
 };
 
-export default WatchListBox;
+const WatchListContainer = () => {
+	return (
+		<div className="watchList">
+			<div className="watchList-header">Watchlist</div>
+			<div className="watchList-list-holder">
+				{stories.map((Story, i) => (
+					<WatchListBox key={i} Story={Story} />
+				))}
+			</div>
+		</div>
+	);
+};
+
+export default WatchListContainer;

@@ -1,3 +1,3 @@
-import WatchListContainer from "./WatchListContainer";
+import WatchListBox from "./WatchListBox";
 
-export default WatchListContainer;
+export default WatchListBox;

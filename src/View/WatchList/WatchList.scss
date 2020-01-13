@@ -1,58 +1,58 @@
-.WatchList {
+.watchList {
 	padding: 14px 48px;
 	max-width: 1026px;
 	background-color: #f7f7f7;
 
-	.WatchList-header {
+	.watchList-header {
 		font-size: 24px;
 		font-weight: bold;
 		color: #176bad;
 	}
 }
-.WatchList-list-holder {
+.watchList-list-holder {
 	margin-top: 20px;
 }
-.WatchList-box {
+.watchList-box {
 	border-radius: 3px;
 	border: solid 1px #e0e0e0;
 	background-color: #ffffff;
 	margin-bottom: 7px;
 }
-.WatchList-box-main {
+.watchList-box-main {
 	display: flex;
 	padding: 11px;
 	position: relative;
 }
-.WatchList-box-logo {
+.watchList-box-logo {
 	margin-right: 10px;
 
 	img {
 		border-radius: 4px;
 	}
 }
-.WatchList-box-details {
+.watchList-box-details {
 	padding-right: 84px;
-	.WatchList-title {
+	.watchList-title {
 		font-size: 16px;
 		font-weight: bold;
 		margin-bottom: 4px;
 
 		a {
 			text-decoration: none;
-			color: black;
+			color: #292929;
 		}
 	}
-	.WatchList-sub-details {
+	.watchList-sub-details {
 		font-size: 12px;
 		color: #8c8c8c;
 		display: flex;
 		justify-content: space-between;
 
-		.WatchList-sub-time {
+		.watchList-sub-time {
 			margin-left: 10px;
 		}
 	}
-	.WatchList-desc {
+	.watchList-desc {
 		font-size: 14px;
 		line-height: 18px;
 		color: #666666;
@@ -60,12 +60,12 @@
 		max-width: 700px;
 	}
 }
-.WatchList-box-right {
+.watchList-box-right {
 	display: flex;
 	position: absolute;
 	right: 11px;
 }
-.WatchList-box-perc {
+.watchList-box-perc {
 	width: 42px;
 	height: 35px;
 	border-radius: 5px;
@@ -77,7 +77,7 @@
 	justify-content: center;
 	align-items: center;
 }
-.WatchList-box-arrow {
+.watchList-box-arrow {
 	height: 35px;
 	display: flex;
 	align-items: center;
@@ -88,7 +88,7 @@
 		cursor: pointer;
 	}
 }
-.WatchList-box-sub {
+.watchList-box-sub {
 	border-top: solid 1px #e0e0e0;
 	background-color: #f7f7f7;
 	display: flex;
@@ -113,7 +113,7 @@
 		text-align: center;
 	}
 }
-.WatchList-box-arrow-small {
+.watchList-box-arrow-small {
 	display: none;
 	justify-content: flex-end;
 	padding: 0 12px 11px;
@@ -129,37 +129,40 @@
 	Media Query
 */
 
-@media (max-width: 380px) {
-	.WatchList {
+@media (max-width: 480px) {
+	.watchList {
 		padding: 14px 11px;
 	}
-	.WatchList-box-logo {
+	.watchList-header{
+		font-size: 19px;
+	}
+	.watchList-box-logo {
 		img {
 			width: 18px;
 			height: 18px;
 		}
 	}
-	.WatchList-box-details {
+	.watchList-box-details {
 		padding-right: unset;
-		.WatchList-title {
+		.watchList-title {
 			color: #292929;
 			padding-right: 45px;
 			font-size: 14px;
 		}
 	}
-	.WatchList-box-arrow {
+	.watchList-box-arrow {
 		display: none;
 	}
-	.WatchList-box-arrow-small {
+	.watchList-box-arrow-small {
 		display: flex;
 	}
-	.WatchList-box-sub {
+	.watchList-box-sub {
 		justify-content: center;
 	}
 }
 
-@media (min-width: 381px) and (max-width: 768px) {
-	.WatchList {
+@media (min-width: 481px) and (max-width: 768px) {
+	.watchList {
 		padding: 14px 19px;
 	}
 }
